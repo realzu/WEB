@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #grid {
+            border: 5px solid pink;
+            display: grid;  /*추가로 밑에해줘야 달라짐*/
+            grid-template-columns: 150px 1fr; /*한 행으로 합침. fr은 보이는 화면기준으로 비율나눔. 1fr 1fr이면 둘다 1:1로(브라우저 크기줄이면 자동으로 줄여짐)*/
+        }
+        div {
+            border: 5px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="grid"> <!--디자인 목적을 위해 만든 div(for grid). 두 개의 (밑)div 처리 가능-->
+        <div>NAVIGATION</div>
+        <div>Cascading Style Sheets (<a href="https://en.wikipedia.org/wiki/CSS">CSS</a>) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML (including XML dialects such as SVG, MathML or XHTML).</div>
+    </div>
+    <!-- <span>NAVIGATION</span>
+    <span>ARTICLE</span> -->
+</body>
+</html>

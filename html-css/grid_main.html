@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <title>WEB - CSS</title>
+        <meta charset="utf-8">
+        <style>
+            body {
+                margin: 0;
+            }
+            a {
+                color:black;
+                text-decoration: none;
+            }
+            h1 {
+                font-size: 45px;
+                text-align: center;
+                border-bottom: 1px solid gray;
+                margin: 0;
+                padding: 20px;
+            }
+            ol {
+                border-right: 1px solid gray;
+                width: 100px;
+                margin: 0;
+                padding: 20px;
+            }
+            #grid {
+                display: grid;
+                grid-template-columns: 150px 1fr;
+            }
+            #grid ol { /*부모가 grid인 ol만 해당*/
+                padding-left: 33px;
+            }
+            #grid #article {
+                padding-left: 25px;
+            }
+            /* screen width < 800ox */
+            @media(max-width:800px){
+                #grid {
+                    display: block; /*화면 전체 사용*/
+                }
+                ol {
+                    border-right: none;
+                }
+                h1 {
+                    border-bottom: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>WEB</h1>
+        <div id="grid">
+            <ol>
+                <li><a href="">HTML</a></li>
+                <li><a href="">CSS</a></li>
+                <li><a href="">JavaScript</a></li>
+            </ol>
+            <div id="article">
+                <h2>CSS</h2>
+                <p>
+                    Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML (including XML dialects such as SVG, MathML or XHTML).[1] CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+                </p> 
+            </div>
+        </div>       
+    </body>
+</html>
