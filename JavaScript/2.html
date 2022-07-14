@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body> <!--화면 야간모드/주간모드-->
+    <input type="button" value="night" onclick="document.querySelector('body').style.backgroundColor = 'black'; document.querySelector('body').style.color = 'white';">
+    <input type="button" value="day" onclick="document.querySelector('body').style.backgroundColor = 'white'; document.querySelector('body').style.color = 'black';">
+
+    <!-- + 토글 사용 -->
+    <input id="night_day" type="button" value="night" onclick="
+        if(document.querySelector('#night_day').value === 'night'){
+            document.querySelector('body').style.backgroundColor = 'black';
+            document.querySelector('body').style.color = 'white';
+            document.querySelector('#night_day').value = 'day'; //day로 값 변경
+        } else{
+            document.querySelector('body').style.backgroundColor = 'white';
+            document.querySelector('body').style.color = 'black';
+            document.querySelector('#night_day').value = 'night';
+        }
+    ">
+    JavaScript,[10] often abbreviated JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.[11] As of 2022, 98% of websites use JavaScript on the client side for web page behavior,[12] often incorporating third-party libraries.
+
+    <!-- 위의 작업 '리팩토링' -->
+    <input type="button" value="night" onclick="
+        var target = document.querySelector('body') //target이라는 변수로 중복제거
+        if(this.value === 'night'){ //document.querySelector('#night_day')는 결국 자기 자신이므로 <this>사용
+            target.style.backgroundColor = 'black';
+            target.style.color = 'white';
+            this.value = 'day'; //day로 값 변경
+        } else{
+            target.style.backgroundColor = 'white';
+            target.style.color = 'black';
+            this.value = 'night';
+        }
+    ">
+</body>
+</html>
