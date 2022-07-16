@@ -34,8 +34,8 @@ console.log(msg);   //변경된 msg 출력
 
 // default value
 // 1) or 연산 기능으로 매개변수 입력x 시 처리
-function sayHi(type){
-    let newType = type || 'friend';
+// function sayHi(type){
+//     let newType = type || 'friend';
 // 2) 매개변수에 = 으로 처리
 function sayHi(type = 'friend'){
     let msg = `Hi, ${type}`;
