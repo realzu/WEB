@@ -44,7 +44,7 @@ desc.repeat(3);
 // 문자열 비교 (대문자<소문자, 알파벳순)
 'a' < 'c' //true
 'abc'.codePointAt(1); // string중에 n번째 아스키코드값
-'abc'.fromCodePoint(97); //'a' (vscode에 안뜸)
+// 'abc'.fromCodePoint(97); //'a' (vscode에 안뜸)
 
 // console.log('abc'.codePointAt(1));
 
@@ -88,11 +88,72 @@ arr.lastIndexOf(3); //끝에서부터 찾기
 arr.includes(2); //true
 
 // arr.find(fn) --t,f / arr.findlndex(fn)--인덱스 반환  (없으면 undefined)
+arr = [1,2,3,4,5,6]
+const result1 = arr.find((item) => { //item = 각각의 객체
+    return item % 2 === 0;
+})  //2 (조건에 맞는값 하나 딱 찾는순간 끝)
+
+// arr.filter(fn) : 만족하는 모든 요소를 배열로 반환
+const result2 = arr.filter((item) => {
+    return item % 2 === 0; //2,4,6
+})
+
+// arr.reverse() : 역순으로 재정렬
+
+// arr.map(fn) : 함수를 받아 특정 기능을 시행하고 새로운 배열을 반환
+let userList = [
+    { name: 'taemin', age: 30 },
+    { name: 'hyunju', age: 30 },
+    { name: 'minhyun', age: 30 },
+];
+
+let newUserList = userList.map((user, index) => {
+    return Object.assign({}, user, {
+        isAdult : user.age > 19
+    });
+});
+
+// join, split
+arr = ['안녕', '나는', '철수야'];
+let result3 = arr.join();   //안녕,나는,철수야 -- ()공백이면 ,로 출력
+result3 = arr.join('-');
+result3 = arr.splice('-'); //(분리기준 기호) -로 된걸 나눈다 (배열로 출력)
+
+// Array.isArray()
+// 자바스크립트는 배열, 객체 모두 object로 나와서 알수없으니 확인하게
+Array.isArray(arr); //true
 
 
 
+// @ 구조 분해 할당
+let [x, y] = [1, 2]; // x와 y에 각각 1, 2가 들어감
 
-// ---
+// 배열 구조 분해
+let names = ['Mike', 'Tom', 'Jane'];
+let [name1, name2, name3] = names; // Mike, Tom, Jane
+
+let str = 'Mike-Tom-Jane';
+let [str1, str2, str3] = str.split('-');
+
+// 기본값
+let [a, b, c] = [1, 2];
+[a=3, b=4, c=5] = [1, 2];
+
+// 일부 반환 값 무시
+let [user1, , user2] = ['Mike', 'Tom', 'Jane', 'Tony'];
+
+// 바꿔치기
+[a, b] = [b, a]
+
+
+// 객체 구조 분해
+let person = {name: 'Mike', age: 30};
+let {name, age} = person;
+// let name = user.name;
+// let age = user.age;
+
+
+
 // @ 클로저 (Closure)
 let one;
 one = 1;
