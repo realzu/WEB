@@ -1,0 +1,76 @@
+<!-- 1) 셀렉터 Selector -->
+<!-- 2) Alert UI 만들기 : 1.미리 디자인해놓고 숨김 2.원할 때 JS 이용해서 보여줌! -->
+<!-- 3) function 문법 : 긴 코드를 깔끔하게 한 단어로 축약가능-->
+<!-- 4) function 파라미터 -->
+<!-- 5) EventListener -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h2 id="hello">안녕하세요</h2>
+    <h2 id="hi">올때메로나</h2>
+    <!-- ----------------------------------------1강 -->
+    
+    <div class="alert-box" id="alert">
+        <p id="title">Alert 박스</p>
+        <!-- <button onclick="document.getElementById('alert').style.display = 'none'">닫기</button> -->
+        <!-- <button onclick="알림창열기('none')">닫기</button> -->
+        <button id="close"> X </button>
+    </div>
+    <button onclick="알림창열기('block')">버튼</button>    
+    
+    <button onclick="message('아이디를 입력안하셨어요')">버튼1</button>
+    <button onclick="message('비번을 입력안하셨어요')">버튼2</button>
+    
+    <!-- ----------------------------------------2,3,4강 -->
+
+    <script>
+        document.getElementById('hello').innerHTML = '안녕';
+        // 웹문서.ID hello인 HTML요소가져와. 내부글자
+        // document.getElementById('??').?? = '??';
+        document.getElementById('hi').innerHTML = '올때바밤바';
+        document.getElementById('hi').style.color = 'pink';
+        document.getElementById('hi').style.fontSize = '20px';
+
+        // ----------------------------------------1강
+
+        // HTML을 먼저 읽어야 JS 조작 가능 (변경할 HTML 요소는 위 -> JS로 조작은 밑에서)
+        // function 알림창열기(){
+        //     document.getElementById('alert').style.display = 'block';
+        // }
+        function 알림창열기(구멍){
+            document.getElementById('alert').style.display = 구멍;
+        }
+        // function 알림창닫기(){
+        //     document.getElementById('alert').style.display = 'none';
+        // } -- 파라미터에 의해 필요가 없어짐
+
+        // chobo: 함수많이만듦 -> gosu: 비슷한 함수 여러개 만들필요 x
+        function plus(구멍1, 구멍2){    //함수에 구멍뚫고
+            구멍1 + 구멍2    //구멍타고온거 꽂아주기 ㅋ.ㅋ
+        }
+        plus(2,  1); // 2+1
+
+        function message(msg){
+            document.getElementById('title').innerHTML = msg;            
+            document.getElementById('alert').style.display = 'block';   
+            // document.getElementsByClassName('alert-box')[0] class명.찾은것중 n(0)번째것 선택
+        }
+
+        // ----------------------------------------2,3,4강
+
+        document.getElementById('close').addEventListener('click', function(){
+            // 이 요소가 클릭되면 하단 코드 실행
+            // event는 click, keydown, scroll, mouseover 등
+            document.getElementById('alert').style.display = 'none';
+        });
+
+    </script>
+    
+</body>
+</html>

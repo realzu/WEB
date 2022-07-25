@@ -1,0 +1,29 @@
+<!-- 6) jQuery -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <!-- jQuery 입력 위치는 주로 body맨밑. 초/중반에 넣으면 html이 top-down으로 내려오다가 다운받느라 시간 지체됌 (지금은 강의용)-->
+</head>
+<body>
+    <h4 class="yellow-bg" id="test">안녕하세요</h4>
+
+    <script>
+        // document.getElementById('test').innerHTML = '??'
+        // document.querySelectorAll('#test')[0]
+
+        // 제이쿼리로 HTML 변경하기
+        // $('CSS셀렉터')
+        $('#test').html();  //그대로 출력
+        $('#test').html('안녕');    //요소 안의 모든 html
+        $('#test').text('안녕');    //요소 안의 모든 text
+
+        $('#test').css('color', 'red');    // HTML 스타일 변경 // .css(이걸, 이렇게)
+        $('#test').attr('src', 'asdf.jpg')    // HTML 다른거 변경 // .attr(이걸, 이렇게)
+
+
+    </script>
+</body>
+</html>
