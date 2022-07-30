@@ -5,6 +5,10 @@
   opacity: 1;
   transition: opacity 0.5s; 
 } /* opacity 변경될 때 0.5에 걸쳐 변경 */
+.load-e{
+  opacity: 1;
+  transition: opacity 0.5s;
+}
 
 .main-bg {
   height: 300px;
