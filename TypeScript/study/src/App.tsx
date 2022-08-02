@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
 
-// let 박스 :JSX.IntrinsicElements['div'] = <div>ㅁㄴㅇㄹㄴ</div>;  //JSX표현하는타입) :JSX.Element/IntrinsicElements --얜 에러나는걸..
-let 박스 :JSX.Element = <div>ㅁㄴㅇㄹㄴ</div>;  //JSX표현하는타입) :JSX.Element/IntrinsicElements
+let 박스 :JSX.Element = <div>ㅁㄴㅇㄹㄴ</div>;  //JSX타입) :JSX.Element/IntrinsicElements
 
 function App() {
 
-  let [user, setUser] = useState('kim') //useState타입은 자동으로 설정됌
+  let [user, setUser] = useState('kim') //useState()안의타입은 자동할당
 
   return (
     <div>
@@ -16,11 +15,10 @@ function App() {
     </div>
   );
 }
-function Profile(props :{name :string, age :string}) :JSX.Element { //Component 만들 때 타입지정: return타입
+function Profile(props :{name :string, age :string}) :JSX.Element { //Component 만들 때 return타입
   return (
     <div>{props.name}입니다</div>
   );
 }
-
 
 export default App;

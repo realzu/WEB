@@ -1,16 +1,14 @@
 // "no-unused-vars": "off",
 // "@typescript-eslint/no-unused-vars" : ["error"]
 
-
-// 타입: string, number, boolean, null, undefined, bidint, [], {} 등
 let 이름1 :string = 'Kim';
 let 이름2 :string[] = ['Kim', 'Park'];   //문자열 배열
 
-let 이름3 :{ name? : string} = { name : 'kim' }  //객체  // ?은 속성 사용여부 불확실
-    // 변수? :number는 사실상 변수 :number|undefined와 같음
+let 이름3 :{ name? : string} = { name : 'kim' }  //객체
+
 let 회원들 :{user1 : string, user2: string} = {user1 : 'kim', user2: 'park'}
 
-let 회원 = 'hj' //타입 지정 자동임(생략가능)
+let 회원 = 'hj' //타입 지정 자동(생략가능)
 
 // 과제
 let 내이름 = 'hyunju'
@@ -24,16 +22,16 @@ let project :{member : string[], days : number, started : boolean} = {
 }
 
 
-let 이름4 :string[] | number = 123; //Union type: 다양한 타입가능(타입 2개이상 합친 새로운타입) (ex.문자배열 또는 숫자)
+let 이름4 :string[] | number = 123; //Union type
 let 유저 :(number | string)[] = [1, '2', 3]
 let 오브젝트 :{ a : string | number} = { a : '123'}
 
-let 이름 :any; //모든 자료형 허용 --사실상 타입실드 해제문법(=JS변수)
-// let 취미 :unknown;  //모든 자료형 허용 (any보다 안전)
+let 이름 :any;
+// let 취미 :unknown;
 // let 변수1 :string = 취미;   --X. 막아줌
 let 변수1 :string = 이름;   //얜 any가 뚫음
 
-let age :string|number; //유니온타입은 새로운타입이므로 -> string+1, number+1 (O) / string|number+1(X)
+let age :string|number; //새로운타입 -> string+1, number+1 (O) / string|number+1(X)
 // age + 1; --X
 let age1 :unknown = 1;  //숫자타입이어야 연산가능(any,int,bigint)
 // age1 - 1; --X
@@ -55,12 +53,12 @@ let 학교 :{score :(number|boolean)[], teacher :string, friend :string|string[]
 type 내타입 = string | number   //Type alias: 타입은 변수에 담을수있음
 let 이름5 :내타입 = 123;
 
-function 함수(x? :number) :number {   //함수 파라미터,return타입지정. ?는 파라미터가옵션일때(넣던말던). 괄호옆타입은 return꺼   --함수매개변수던 변수에 타입안쓰면 any처리(=안했을경우) 
+function 함수(x? :number) :number {   //함수 파라미터,return타입지정
     // return x * 2 
     return 2
 }
 함수(12)
-function 함수1(x :number) :void { //함수 void처리. 또는 비워도됌
+function 함수1(x :number) :void { 
     let num = 1 + 1   //return(x)
 }
 
@@ -107,8 +105,7 @@ class User {
 }
 
 
-// Type Narrowing : 타입이 하나로 아직 확정되지않은경우(= union type) -> if문 등으로 Narrowing. 타입을 하나로 정해줌
-    //Narrowing 판정 문법: typeof 변수, 속성명 in 오브젝트자료, 인스턴스 instanceof 부모
+// Type Narrowing
 function 내함수(x :number|string) {
     if (typeof x === 'string'){ //typeof는 ''string으로 반환
         return x + '1'
@@ -118,12 +115,11 @@ function 내함수(x :number|string) {
 }
 내함수(123)
 
+// Type Assertion
 function 내함수1(x :number|string){
     let array :number[] = []
-    array[0] = x as number; //assertion문법 (if문 필요가없음)
+    array[0] = x as number; //if문 필요 없
 }
-// assertion) 어떤타입이 들어올지 100%알때 사용 : number|string이면 둘 중 하나는 들어오니
-// but 보통 if문쓰지. 웬만하면 디버깅/임시용 정도로 사용
 
 // 과제
 function cleaning(x :(number|string)[]) {   
