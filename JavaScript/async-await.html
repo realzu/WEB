@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">버튼</button>
+
+    <script>
+        /*
+        async function 더하기(){    //async -> promise역할
+            // 1 + 1;
+            // return 1 + 1;
+            // return Promise.reject('실패임')
+            var 프로미스 = new Promise(function(성공, 실패){
+                var 힘든연산 = 1 + 1;
+                성공(힘든연산);
+            });
+
+            try {
+                var 결과 = await 프로미스;
+                console.log(결과);
+            } catch {
+                console.log('연산 안됐네');
+            }
+        }
+        */
+
+        async function 클릭(){
+            var 프로미스 = new Promise(function(성공, 실패){
+                document.getElementById('button').addEventListener('click',function(){
+                    성공('성공했어요');
+                })
+            });
+            var 결과 = await 프로미스; //프로미스 성공까지 기달
+            console.log(결과);
+        }
+
+        클릭();
+
+    </script>
+</body>
+</html>

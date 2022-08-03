@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+</head>
+<body>
+
+    <img id="test" src="https://codingapple1.github.io/kona.jpg">
+
+    <script>
+        var 프로미스 = new Promise(function(성공, 실패){
+            var 연산 = 1 + 1;
+            성공(연산); //then실행
+            // 실패(); //catch
+        });    
+        프로미스.then(function(결과){
+            console.log(결과)
+        }).catch(function(){
+            console.log('실패했어요')    
+        })
+
+        var 이미지로딩 = new Promise(function(resolve, reject){
+            var img = document.querySelector('#test');
+            img.addEventListener('load', function(){    //에러는 'error'
+                resolve();
+            });
+        });
+        이미지로딩.then(function(){
+            console.log('로딩 성공')
+        }).catch(function(){
+            console.log('로딩 실패')
+        })
+        
+        var 프로미스1 = ajax해주는함수('https://codingapple1.github.io/hello.txt');
+
+        프로미스1.then(function(결과){
+            console.log(결과)
+            return ajax해주는함수('https://codingapple1.github.io/hello2.txt');
+        }).then(function(결과){
+            console.log(결과)
+        })
+
+        function ajax해주는함수(URL){
+            return new Promise((성공, 실패) => { //Promise통해 바로 then
+                $.get(URL)
+                .done(function(결과){   //Ajax 요청 결과
+                    성공(결과)
+                });
+            });
+        }
+
+
+        
+    
+    </script>
+</body>
+</html>
