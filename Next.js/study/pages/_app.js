@@ -1,16 +1,28 @@
-import Layout from "../components/Layout";
+import '../styles/globals.css';
+import 'semantic-ui-css/semantic.min.css';
+import Footer from '../src/component/Footer';
+import Top from '../src/component/Top';
 
-// Next.js는 시작 시 _app.js 를 먼저 (파일명(_app.js) 무조건. 함수명(App) 상관x)
-export default function App({Component, pageProps}){    //외부의어떤컴포넌트, 컴포넌트+밑의return
-    return  (
-        /*
+function MyApp({Component, pageProps}){
+    return (
+        <div style={{ width: 1000, margin: '0 auto' }}>
+            <Top />
+            <Component {...pageProps} />;
+            <Footer />
+        </div>
+    )
+}
+
+export default MyApp;
+
+/* with 노마드코더
+import Layout from "../components/Layout";
+function App({Component, pageProps}){
+    return  (        
         <div>
             <Component {...pageProps} />
             <span>hello</span>
-        </div>
-        */
-        
-        /*
+        </div>        
         <>
             <NavBar />
             <Component {...pageProps} />
@@ -21,11 +33,9 @@ export default function App({Component, pageProps}){    //외부의어떤컴포�
                 }
             `}</style>
         </>
-        */
-
-        <Layout>    {/* Layout태그안의 컴포넌트들은 children에서 보여질것 */}
+        <Layout> -- Layout태그안의 컴포넌트들은 children에서 보여질것
             <Component {...pageProps} />
         </Layout>
-
     );
 }
+*/

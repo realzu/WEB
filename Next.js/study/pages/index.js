@@ -1,72 +1,40 @@
-import { useEffect, useState } from "react";
-import Seo from "../components/Seo";
+import Axios from 'axios';
+import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import { Divider, Header } from 'semantic-ui-react';
+import ItemList from '../src/component/ItemList';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
-    const [movies, setMovies] = useState([]);
+    const [list, setList] = useState([]);
+
+    const API_URL = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline'; // $ npm i axios
+
+    function getData() {
+        Axios.get(API_URL).then(res => {
+            setList(res.data);
+        });
+    }
 
     useEffect(() => {
-        (async () => {
-            const {results} = await (
-                await fetch(
-                    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
-                )
-            ).json();
-            setMovies(results);
-        })();
+        getData();
     }, []);
 
     return (
         <div>
-            <Seo title="Home" />
-            {!movies && <h4>Loading...</h4>}
-            {movies?.map((movie) => (   //movies있는지 확인
-                <div className="movie" key={movie.id}>
-                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-                    <h4>{movie.original_title}</h4>
-                </div>
-            ))}
-            <style jsx>{`
-                .container {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    padding: 20px;
-                    gap: 20px;
-                }
-                .movie {
-                    cursor: pointer;
-                }
-                .movie img {
-                    max-width: 100%;
-                    border-radius: 12px;
-                    transition: transform 0.2s ease-in-out;
-                    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-                }
-                .movie:hover img {
-                    transform: scale(1.05) translateY(-10px);
-                }
-                .movie h4 {
-                    font-size: 18px;
-                    text-align: center;
-                }
-            `}</style>
+            <Head>
+                <title>HOME | 코딩앙마</title> {/* 타이틀 */}
+            </Head>
+            <Header as='h3' style={{ paddingTop: 40 }}>
+                베스트 상품
+            </Header>
+            <Divider />
+            <ItemList list={list.slice(0, 9)} /> {/* ★slice로 배열나누기 */}
+            <Header as='h3' style={{ paddingTop: 40 }}>
+                신상품
+            </Header>
+            <Divider />
+            <ItemList list={list.slice(9)} />
         </div>
-    );
-}
-
-
-
-function basic() {
-    // const [counter, setCounter] = useState(0);
-    return (
-        <>
-        <div>
-            <h4>Hello {counter}</h4>
-            <button onClick={() => setCounter(prev => prev + 1)}>+</button>
-        </div>
-        <div>
-            {/* <NavBar /> */}
-            <h1 className="active">Hello</h1>
-        </div>
-    </>
-    );
+    )
 }
