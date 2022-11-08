@@ -9,7 +9,7 @@ export default function Home() {
     const [list, setList] = useState([]);
     const [isLoading, setIsLoading] = useState(true); // 데이터 로딩 표시
 
-    const API_URL = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline'; // $ npm i axios
+    const API_URL = process.env.NEXT_PUBLIC_API_URL; // $ npm i axios // 브라우저 환경
 
     function getData() {
         Axios.get(API_URL).then(res => {

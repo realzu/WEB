@@ -5,7 +5,7 @@ import Item from '../../src/component/item';
 import { Loader } from 'semantic-ui-react';
 import Head from 'next/head';
 
-const Post = ({item}) => { // getServerSideProps에서 넘어온 item
+const Post = ({item, name}) => { // getServerSideProps에서 넘어온 item
     return (
         <>
             {item && (
@@ -14,6 +14,7 @@ const Post = ({item}) => { // getServerSideProps에서 넘어온 item
                         <title>{item.name}</title>
                         <meta name='description' content={item.description}></meta> {/* 검색엔진에 내용이 담기므로 SEO 최적화 굿 */}
                     </Head>
+                    {/* {name} 환경 입니다. */}
                     <Item item={item} />
                 </>
             )}
@@ -32,6 +33,7 @@ export async function getServerSideProps(context) {
     return {
         props: {
             item: data, // data를 item에 넣어줌
+            name: process.env.name // 서버니까
         },
     };
 ;}
