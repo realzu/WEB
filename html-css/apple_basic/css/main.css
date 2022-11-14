@@ -68,3 +68,24 @@ p {
     background-color: grey;
     /* clear: both; : float 다음요소에게 -> float이상현상 해결 */
 }
+
+.navbar>li {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+} /* selector 문법
+> : ~안에 있는 직계자식
+공백 : ~안에 있는 모든자식
+*/
+
+.navbar a {
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.link:visited {
+    color: black;
+} /* 방문 후(visited) */
