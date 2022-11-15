@@ -89,3 +89,35 @@ p {
 .link:visited {
     color: black;
 } /* 방문 후(visited) */
+
+table {
+    border-collapse: collapse;
+} /* table은 기본적으로 틈이 존재 -> 없애기 위해 */
+td, th {
+    border: 1px solid black;
+}
+
+.btn {
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: coral;
+    color: white;
+    cursor: pointer;
+}
+
+/* 마우스 올릴 때 */
+.btn:hover {
+    background-color: chocolate;
+}
+
+/* 클릭 중 스타일 */
+.btn:active {
+    background-color: brown;
+}
+
+/* 커서찍혀있을때 */
+.btn:focus {
+    background-color: gray;
+}
