@@ -19,3 +19,48 @@
 } /* margin collapse 현상: 박스 2개의 위쪽 테두리가 겹치면 margin도 합쳐짐
 같은방향으로 여백 -> 큰 여백을 기준으로 나뉨
 */
+
+
+/* 폰트 커스텀 (woff 권장)
+@font-face {
+    font-family: '이쁜폰트';
+    src: url(../font/NanumSquareR.ttf);
+}
+
+body {
+    font-family: '이쁜폰트';
+    transform: rotate(0.03deg)
+}
+*/
+
+.flip-outer {
+    width: 300px;
+    height: 300px;
+}
+
+.flip-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: all 1s;
+    transform-style: preserve-3d;
+}
+/* 앞면, 뒷면 배치 */
+
+.flip-inner:hover {
+    transform: rotateY(180deg);
+}
+
+.front {
+    width: 100%;
+    position: relative;
+    /* backface-visibility: hidden; 뒷면 안보이게 */
+}
+
+.back {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+/* y축 기준으로 돌려라 (뒤집었을때 뒷면 글자 제대로 */
