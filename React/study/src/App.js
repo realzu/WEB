@@ -1,4 +1,6 @@
-// /* eslint-disable */
+// -- CodingApple
+
+/* eslint-disable */
 // import './App.css';
 // import { Container, Nav, Navbar } from 'react-bootstrap';
 // import bg from './img/bg.png';
@@ -138,9 +140,37 @@
 
 // export default App;
 
+
+
+/* -- jest
+
 function App() {
   return (
     <div>App</div>
+  );
+}
+
+export default App;
+*/
+
+
+
+// -- React Query
+import { QueryClient, QueryClientProvider } from "react-query";
+import "./App2.css";
+import { Posts } from "./react-query/Posts";
+
+const queryClient = new QueryClient();
+
+function App() {
+  return (
+    // provide React Query client to App
+    <QueryClientProvider client={queryClient}>
+      <div>
+        <h1>Blog &apos;em Ipsum</h1>
+        <Posts />
+      </div>
+    </QueryClientProvider>
   );
 }
 
