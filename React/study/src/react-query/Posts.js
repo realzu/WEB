@@ -14,8 +14,14 @@ export function Posts() {
     const [currentPage, setCurrentPage] = useState(0);
     const [selectedPost, setSelectedPost] = useState(null);
 
-    const {data} = useQuery('posts', fetchPosts); //쿼리이름, 함수(쿼리의 데이터 가져올 방법)
-    if (!data) return <div />;
+    const { data, isError, error, isLoading } = useQuery('posts', fetchPosts); //쿼리이름, 함수(쿼리의 데이터 가져올 방법)
+    if (isLoading) return <h3>Loading...</h3>;
+    if (isError) return (
+        <>
+            <h3>something went wrong ㅠ</h3>
+            <p>{error.toString()}</p>{/* TypeError: Failed to fetch */}
+        </>
+    )
 
     return (
         <>
