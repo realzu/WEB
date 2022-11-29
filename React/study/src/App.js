@@ -142,36 +142,48 @@
 
 
 
-/* -- jest
+// - jest
+
+import logo from './logo.svg'
 
 function App() {
   return (
-    <div>App</div>
+    <div>App
+      <header>
+        <img src={logo} alt='logo'/>
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a>
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
 export default App;
-*/
+
 
 
 
 // -- React Query
-import { QueryClient, QueryClientProvider } from "react-query";
-import "./App2.css";
-import { Posts } from "./react-query/Posts";
+// import { QueryClient, QueryClientProvider } from "react-query";
+// import "./App2.css";
+// import { Posts } from "./react-query/Posts";
 
-const queryClient = new QueryClient();
+// const queryClient = new QueryClient();
 
-function App() {
-  return (
-    // provide React Query client to App
-    <QueryClientProvider client={queryClient}>
-      <div>
-        <h1>Blog &apos;em Ipsum</h1>
-        <Posts />
-      </div>
-    </QueryClientProvider>
-  );
-}
+// function App() {
+//   return (
+//     // provide React Query client to App
+//     <QueryClientProvider client={queryClient}>
+//       <div>
+//         <h1>Blog &apos;em Ipsum</h1>
+//         <Posts />
+//       </div>
+//     </QueryClientProvider>
+//   );
+// }
 
-export default App;
+// export default App;
