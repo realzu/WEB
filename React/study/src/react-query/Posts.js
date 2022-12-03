@@ -14,7 +14,9 @@ export function Posts() {
     const [currentPage, setCurrentPage] = useState(0);
     const [selectedPost, setSelectedPost] = useState(null);
 
-    const { data, isError, error, isLoading } = useQuery('posts', fetchPosts); //쿼리이름, 함수(쿼리의 데이터 가져올 방법)
+    const { data, isError, error, isLoading } = useQuery('posts', fetchPosts, {
+        staleTime: 2000
+    }); //쿼리이름, 함수(쿼리의 데이터 가져올 방법), options(2초마다 게시물 만료)
     if (isLoading) return <h3>Loading...</h3>;
     if (isError) return (
         <>
